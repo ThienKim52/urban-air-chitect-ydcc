@@ -1,0 +1,14 @@
+﻿# Byte‑compiled / cache files
+__pycache__/
+*.py[cod]
+
+# Data files (keep them in the repo but ignore large intermediates)
+data/*.csv
+
+# Python virtual environment
+.env
+venv/
+.venv/
+
+# VS Code settings
+.vscode/

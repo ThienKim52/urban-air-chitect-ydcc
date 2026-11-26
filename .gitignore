@@ -12,3 +12,9 @@ venv/
 
 # VS Code settings
 .vscode/
+
+# Web app dependencies, build output, and copied model assets
+webapp/node_modules/
+webapp/dist/
+webapp/public/models/*.onnx
+webapp/public/models/airwise_scaler.json

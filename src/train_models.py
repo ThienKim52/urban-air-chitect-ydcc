@@ -72,7 +72,8 @@ def train_random_forest(X_train, y_train, X_val, y_val):
     print(f"  Thời gian:  {train_time:.2f}s")
     
     # Feature importance
-    importances = dict(zip(X_train.columns, model.feature_importances_))
+    col_names = getattr(X_train, "columns", [f"f{i}" for i in range(X_train.shape[1])])
+    importances = dict(zip(col_names, model.feature_importances_))
     top5 = sorted(importances.items(), key=lambda x: x[1], reverse=True)[:5]
     print(f"  Top-5 features: {[(k, f'{v:.3f}') for k, v in top5]}")
     
@@ -120,7 +121,8 @@ def train_xgboost(X_train, y_train, X_val, y_val):
     print(f"  Thời gian:  {train_time:.2f}s")
     
     # Feature importance
-    importances = dict(zip(X_train.columns, model.feature_importances_))
+    col_names = getattr(X_train, "columns", [f"f{i}" for i in range(X_train.shape[1])])
+    importances = dict(zip(col_names, model.feature_importances_))
     top5 = sorted(importances.items(), key=lambda x: x[1], reverse=True)[:5]
     print(f"  Top-5 features: {[(k, f'{v:.3f}') for k, v in top5]}")
     

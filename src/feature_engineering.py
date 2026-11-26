@@ -92,7 +92,10 @@ def create_features(df: pd.DataFrame, target_col: str = "PM2.5") -> pd.DataFrame
     df["hour_cos"] = np.cos(2 * np.pi * hour / 24)
     df["month_sin"] = np.sin(2 * np.pi * (month - 1) / 12)
     df["month_cos"] = np.cos(2 * np.pi * (month - 1) / 12)
-    df["day_of_week"] = df.index.dayofweek
+    if hasattr(df.index, "day_of_week"):
+        df["day_of_week"] = df.index.day_of_week
+    else:
+        df["day_of_week"] = df.index.dayofweek
     print(f"  ✓ Time features: 5 cột (hour sin/cos, month sin/cos, day_of_week)")
     
     # ──────────────────────────────────────────────────

@@ -18,3 +18,9 @@ webapp/node_modules/
 webapp/dist/
 webapp/public/models/*.onnx
 webapp/public/models/airwise_scaler.json
+
+node_modules/
+dist/
+.env
+.env.local
+.vercel/
